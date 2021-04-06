@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Dominio.Entidades", "1.Dominio\Masiv.Casino.Dominio.Entidades\Masiv.Casino.Dominio.Entidades.csproj", "{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Dominio", "1.Dominio", "{9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Dominio.Interfaces", "1.Dominio\Masiv.Casino.Dominio.Interfaces\Masiv.Casino.Dominio.Interfaces.csproj", "{F4EC54B3-9BBF-4897-AFC9-A737785A407D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Dominio.Servicios", "1.Dominio\Masiv.Casino.Dominio.Servicios\Masiv.Casino.Dominio.Servicios.csproj", "{C36618A7-6B9E-4E26-ABBA-70C97738344E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Infraestructura", "2.Infraestructura", "{27EB156B-52AE-42FD-A5AD-DC4343949BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Infra.Data", "2.Infraestructura\Masiv.Casino.Infra.Data\Masiv.Casino.Infra.Data.csproj", "{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Infra.IoC", "2.Infraestructura\Masiv.Casino.Infra.IoC\Masiv.Casino.Infra.IoC.csproj", "{3FB1CB07-C883-4527-8999-1F877D95A6E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Aplicaciones", "3.Aplicaciones", "{EC31C301-4D85-4200-84EB-304031D160B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Aplicacion.Interfaces", "3.Aplicacion\Masiv.Casino.Aplicacion.Interfaces\Masiv.Casino.Aplicacion.Interfaces.csproj", "{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Aplicacion.Servicios", "3.Aplicacion\Masiv.Casino.Aplicacion.Servicios\Masiv.Casino.Aplicacion.Servicios.csproj", "{CEF642BA-67A0-4ABD-AF08-4143E59ED570}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.WebApi", "4.WebApi", "{AF74FF65-C028-4356-9916-69D2842C7C3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.WebApi", "4.WebApi\Masiv.Casino.WebApi\Masiv.Casino.WebApi.csproj", "{7192AAAB-176B-4694-8892-5BEE3BA3E33F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Test", "5.Test", "{C8038AFB-A0CC-4A57-91D8-0B7A6836A01C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Test", "5.Test\Masiv.Casino.Test\Masiv.Casino.Test.csproj", "{8DB3D835-CFE3-4FEF-A611-08019607B83B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4EC54B3-9BBF-4897-AFC9-A737785A407D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4EC54B3-9BBF-4897-AFC9-A737785A407D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4EC54B3-9BBF-4897-AFC9-A737785A407D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4EC54B3-9BBF-4897-AFC9-A737785A407D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C36618A7-6B9E-4E26-ABBA-70C97738344E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C36618A7-6B9E-4E26-ABBA-70C97738344E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C36618A7-6B9E-4E26-ABBA-70C97738344E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C36618A7-6B9E-4E26-ABBA-70C97738344E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FB1CB07-C883-4527-8999-1F877D95A6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FB1CB07-C883-4527-8999-1F877D95A6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FB1CB07-C883-4527-8999-1F877D95A6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FB1CB07-C883-4527-8999-1F877D95A6E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF642BA-67A0-4ABD-AF08-4143E59ED570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF642BA-67A0-4ABD-AF08-4143E59ED570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF642BA-67A0-4ABD-AF08-4143E59ED570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF642BA-67A0-4ABD-AF08-4143E59ED570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7192AAAB-176B-4694-8892-5BEE3BA3E33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7192AAAB-176B-4694-8892-5BEE3BA3E33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7192AAAB-176B-4694-8892-5BEE3BA3E33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7192AAAB-176B-4694-8892-5BEE3BA3E33F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB3D835-CFE3-4FEF-A611-08019607B83B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB3D835-CFE3-4FEF-A611-08019607B83B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB3D835-CFE3-4FEF-A611-08019607B83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB3D835-CFE3-4FEF-A611-08019607B83B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
+		{F4EC54B3-9BBF-4897-AFC9-A737785A407D} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
+		{C36618A7-6B9E-4E26-ABBA-70C97738344E} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
+		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36} = {27EB156B-52AE-42FD-A5AD-DC4343949BFC}
+		{3FB1CB07-C883-4527-8999-1F877D95A6E9} = {27EB156B-52AE-42FD-A5AD-DC4343949BFC}
+		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5} = {EC31C301-4D85-4200-84EB-304031D160B7}
+		{CEF642BA-67A0-4ABD-AF08-4143E59ED570} = {EC31C301-4D85-4200-84EB-304031D160B7}
+		{7192AAAB-176B-4694-8892-5BEE3BA3E33F} = {AF74FF65-C028-4356-9916-69D2842C7C3A}
+		{8DB3D835-CFE3-4FEF-A611-08019607B83B} = {C8038AFB-A0CC-4A57-91D8-0B7A6836A01C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {970B587A-5BF6-4778-8880-5EF4D8CE7016}
+	EndGlobalSection
+EndGlobal
