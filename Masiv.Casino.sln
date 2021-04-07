@@ -3,33 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Dominio.Entidades", "1.Dominio\Masiv.Casino.Dominio.Entidades\Masiv.Casino.Dominio.Entidades.csproj", "{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Domain", "1.Domain", "{9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Dominio", "1.Dominio", "{9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Infraestructure", "2.Infraestructure", "{27EB156B-52AE-42FD-A5AD-DC4343949BFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Dominio.Interfaces", "1.Dominio\Masiv.Casino.Dominio.Interfaces\Masiv.Casino.Dominio.Interfaces.csproj", "{F4EC54B3-9BBF-4897-AFC9-A737785A407D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Dominio.Servicios", "1.Dominio\Masiv.Casino.Dominio.Servicios\Masiv.Casino.Dominio.Servicios.csproj", "{C36618A7-6B9E-4E26-ABBA-70C97738344E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Infraestructura", "2.Infraestructura", "{27EB156B-52AE-42FD-A5AD-DC4343949BFC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Infra.Data", "2.Infraestructura\Masiv.Casino.Infra.Data\Masiv.Casino.Infra.Data.csproj", "{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Infra.IoC", "2.Infraestructura\Masiv.Casino.Infra.IoC\Masiv.Casino.Infra.IoC.csproj", "{3FB1CB07-C883-4527-8999-1F877D95A6E9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Aplicaciones", "3.Aplicaciones", "{EC31C301-4D85-4200-84EB-304031D160B7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Aplicacion.Interfaces", "3.Aplicacion\Masiv.Casino.Aplicacion.Interfaces\Masiv.Casino.Aplicacion.Interfaces.csproj", "{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Aplicacion.Servicios", "3.Aplicacion\Masiv.Casino.Aplicacion.Servicios\Masiv.Casino.Aplicacion.Servicios.csproj", "{CEF642BA-67A0-4ABD-AF08-4143E59ED570}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Application", "3.Application", "{EC31C301-4D85-4200-84EB-304031D160B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.WebApi", "4.WebApi", "{AF74FF65-C028-4356-9916-69D2842C7C3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.WebApi", "4.WebApi\Masiv.Casino.WebApi\Masiv.Casino.WebApi.csproj", "{7192AAAB-176B-4694-8892-5BEE3BA3E33F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.WebApi", "4.WebApi\Masiv.Casino.WebApi\Masiv.Casino.WebApi.csproj", "{7192AAAB-176B-4694-8892-5BEE3BA3E33F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Test", "5.Test", "{C8038AFB-A0CC-4A57-91D8-0B7A6836A01C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masiv.Casino.Test", "5.Test\Masiv.Casino.Test\Masiv.Casino.Test.csproj", "{8DB3D835-CFE3-4FEF-A611-08019607B83B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.Test", "5.Test\Masiv.Casino.Test\Masiv.Casino.Test.csproj", "{8DB3D835-CFE3-4FEF-A611-08019607B83B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.Domain.Entities", "1.Domain\Masiv.Casino.Domain.Entities\Masiv.Casino.Domain.Entities.csproj", "{093E057B-73CE-43DF-8235-0F5C0A006662}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.Domain.Interfaces", "1.Domain\Masiv.Casino.Domain.Interfaces\Masiv.Casino.Domain.Interfaces.csproj", "{ED421249-5681-4807-BAD0-B32BE01CE18F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.Domain.Services", "1.Domain\Masiv.Casino.Domain.Services\Masiv.Casino.Domain.Services.csproj", "{EACDF58D-EFAC-41A0-8F19-66D203AE4383}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.Infra.Data", "2.Infraestructure\Masiv.Casino.Infra.Data\Masiv.Casino.Infra.Data.csproj", "{F3A61DD7-0360-4449-903E-9A2157F16B0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.Infra.IoC", "2.Infraestructure\Masiv.Casino.Infra.IoC\Masiv.Casino.Infra.IoC.csproj", "{0329A4C0-108A-47F3-813C-893AD48067D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.Application.Interfaces", "3.Application\Masiv.Casino.Application.Interfaces\Masiv.Casino.Application.Interfaces.csproj", "{559EE820-507E-41CA-97C1-4BF8C6C08EA2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masiv.Casino.Application.Services", "3.Application\Masiv.Casino.Application.Services\Masiv.Casino.Application.Services.csproj", "{6F468BE0-B2C1-4BC0-A173-7211AB48882F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,34 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4EC54B3-9BBF-4897-AFC9-A737785A407D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4EC54B3-9BBF-4897-AFC9-A737785A407D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4EC54B3-9BBF-4897-AFC9-A737785A407D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4EC54B3-9BBF-4897-AFC9-A737785A407D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C36618A7-6B9E-4E26-ABBA-70C97738344E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C36618A7-6B9E-4E26-ABBA-70C97738344E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C36618A7-6B9E-4E26-ABBA-70C97738344E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C36618A7-6B9E-4E26-ABBA-70C97738344E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3FB1CB07-C883-4527-8999-1F877D95A6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3FB1CB07-C883-4527-8999-1F877D95A6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3FB1CB07-C883-4527-8999-1F877D95A6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3FB1CB07-C883-4527-8999-1F877D95A6E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEF642BA-67A0-4ABD-AF08-4143E59ED570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEF642BA-67A0-4ABD-AF08-4143E59ED570}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEF642BA-67A0-4ABD-AF08-4143E59ED570}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEF642BA-67A0-4ABD-AF08-4143E59ED570}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7192AAAB-176B-4694-8892-5BEE3BA3E33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7192AAAB-176B-4694-8892-5BEE3BA3E33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7192AAAB-176B-4694-8892-5BEE3BA3E33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,20 +45,48 @@ Global
 		{8DB3D835-CFE3-4FEF-A611-08019607B83B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB3D835-CFE3-4FEF-A611-08019607B83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB3D835-CFE3-4FEF-A611-08019607B83B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{093E057B-73CE-43DF-8235-0F5C0A006662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{093E057B-73CE-43DF-8235-0F5C0A006662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{093E057B-73CE-43DF-8235-0F5C0A006662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{093E057B-73CE-43DF-8235-0F5C0A006662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED421249-5681-4807-BAD0-B32BE01CE18F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED421249-5681-4807-BAD0-B32BE01CE18F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED421249-5681-4807-BAD0-B32BE01CE18F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED421249-5681-4807-BAD0-B32BE01CE18F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACDF58D-EFAC-41A0-8F19-66D203AE4383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACDF58D-EFAC-41A0-8F19-66D203AE4383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACDF58D-EFAC-41A0-8F19-66D203AE4383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACDF58D-EFAC-41A0-8F19-66D203AE4383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3A61DD7-0360-4449-903E-9A2157F16B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3A61DD7-0360-4449-903E-9A2157F16B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3A61DD7-0360-4449-903E-9A2157F16B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3A61DD7-0360-4449-903E-9A2157F16B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0329A4C0-108A-47F3-813C-893AD48067D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0329A4C0-108A-47F3-813C-893AD48067D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0329A4C0-108A-47F3-813C-893AD48067D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0329A4C0-108A-47F3-813C-893AD48067D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559EE820-507E-41CA-97C1-4BF8C6C08EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559EE820-507E-41CA-97C1-4BF8C6C08EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559EE820-507E-41CA-97C1-4BF8C6C08EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559EE820-507E-41CA-97C1-4BF8C6C08EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F468BE0-B2C1-4BC0-A173-7211AB48882F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F468BE0-B2C1-4BC0-A173-7211AB48882F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F468BE0-B2C1-4BC0-A173-7211AB48882F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F468BE0-B2C1-4BC0-A173-7211AB48882F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1B3C0453-EC69-4E2A-BBD9-E4EA43E13F36} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
-		{F4EC54B3-9BBF-4897-AFC9-A737785A407D} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
-		{C36618A7-6B9E-4E26-ABBA-70C97738344E} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
-		{43C6E3DB-00FD-4ADE-8182-03D63BCCDF36} = {27EB156B-52AE-42FD-A5AD-DC4343949BFC}
-		{3FB1CB07-C883-4527-8999-1F877D95A6E9} = {27EB156B-52AE-42FD-A5AD-DC4343949BFC}
-		{56D4B3BB-0C5B-4AEF-B1CA-BD826652DFB5} = {EC31C301-4D85-4200-84EB-304031D160B7}
-		{CEF642BA-67A0-4ABD-AF08-4143E59ED570} = {EC31C301-4D85-4200-84EB-304031D160B7}
 		{7192AAAB-176B-4694-8892-5BEE3BA3E33F} = {AF74FF65-C028-4356-9916-69D2842C7C3A}
 		{8DB3D835-CFE3-4FEF-A611-08019607B83B} = {C8038AFB-A0CC-4A57-91D8-0B7A6836A01C}
+		{093E057B-73CE-43DF-8235-0F5C0A006662} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
+		{ED421249-5681-4807-BAD0-B32BE01CE18F} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
+		{EACDF58D-EFAC-41A0-8F19-66D203AE4383} = {9B02DEA8-B3B4-4BCC-99F8-B22F2AA5F821}
+		{F3A61DD7-0360-4449-903E-9A2157F16B0C} = {27EB156B-52AE-42FD-A5AD-DC4343949BFC}
+		{0329A4C0-108A-47F3-813C-893AD48067D5} = {27EB156B-52AE-42FD-A5AD-DC4343949BFC}
+		{559EE820-507E-41CA-97C1-4BF8C6C08EA2} = {EC31C301-4D85-4200-84EB-304031D160B7}
+		{6F468BE0-B2C1-4BC0-A173-7211AB48882F} = {EC31C301-4D85-4200-84EB-304031D160B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {970B587A-5BF6-4778-8880-5EF4D8CE7016}
