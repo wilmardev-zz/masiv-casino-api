@@ -1,7 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.Domain\Masiv.Casino.Domain.Interfaces\Masiv.Casino.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\..\1.Domain\Masiv.Casino.Domain.Services\Masiv.Casino.Domain.Services.csproj" />
+    <ProjectReference Include="..\..\3.Application\Masiv.Casino.Application.Interfaces\Masiv.Casino.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\..\3.Application\Masiv.Casino.Application.Services\Masiv.Casino.Application.Services.csproj" />
+    <ProjectReference Include="..\Masiv.Casino.Infra.Data\Masiv.Casino.Infra.Data.csproj" />
+  </ItemGroup>
 
 </Project>

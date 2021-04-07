@@ -1,38 +1,73 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Masiv.Casino.Domain.Entities.Config;
+using Masiv.Casino.Infra.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using System;
 
 namespace Masiv.Casino.WebApi
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
         {
+            this.Configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            services.Add(new DependencyInjector().GetServiceCollection());
+            services.AddControllers();
+            AddSwagger(services);
+        }
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
+            else
+                app.UseHsts();
 
             app.UseRouting();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Casino API v1");
+            });
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                endpoints.MapGet("/api/values", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync("Api Casino is running!!");
+                });
+                endpoints.MapControllerRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+            });
+        }
+
+        private void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(options =>
+            {
+                var groupName = "v1";
+                options.SwaggerDoc(groupName, new OpenApiInfo
+                {
+                    Title = $"Casino API {groupName}",
+                    Version = groupName,
+                    Description = "Casino API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Wilmar Duque",
+                        Email = "wilmarduque71@gmail.com",
+                        Url = new Uri("https://www.linkedin.com/in/wilmarduque71/"),
+                    }
                 });
             });
         }
