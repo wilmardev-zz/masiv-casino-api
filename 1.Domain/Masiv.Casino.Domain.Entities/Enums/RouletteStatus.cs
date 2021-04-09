@@ -1,16 +1,16 @@
-﻿using System.ComponentModel;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Masiv.Casino.Domain.Entities.Enums
 {
     public enum RouletteStatus
     {
-        [Description("Open")]
+        [Display(Name = "Open", Description = "Bet is Open")]
         Open = 0,
 
-        [Description("Close")]
+        [Display(Name = "Close", Description = "Bet is Closed")]
         Close = 1,
 
-        [Description("Pending")]
+        [Display(Name = "Pending", Description = "Bet is Pending")]
         Pending = 2
     }
 }

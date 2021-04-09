@@ -6,7 +6,7 @@ namespace Masiv.Casino.Domain.Entities
     public class BetResult
     {
         public string RouletteId { get; set; }
-        public string BetId { get; set; }
+        public Bet Bet { get; set; }
         public int? WinnerNumber { get; set; }
         public BetColor? WinnerColor { get; set; }
         public bool HasWinner { get; set; }

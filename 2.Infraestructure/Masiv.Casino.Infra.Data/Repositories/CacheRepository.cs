@@ -1,20 +1,39 @@
-﻿using Masiv.Casino.Domain.Entities;
-using Masiv.Casino.Domain.Interfaces.Repositories;
+﻿using Masiv.Casino.Domain.Interfaces.Repositories;
+using StackExchange.Redis;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Masiv.Casino.Infra.Data.Repositories
 {
     public class CacheRepository : ICacheRepository
     {
-        public Task<Roulette> Get(string rouletteId)
+        private readonly IDatabase db;
+
+        public CacheRepository()
         {
-            throw new System.NotImplementedException();
+            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost");
+            db = redis.GetDatabase(0);
         }
 
-        public Task Save(List<Roulette> roulettes)
+        public async Task<List<T>> Get<T>(string cacheKey)
         {
-            throw new System.NotImplementedException();
+            return await Task.Run(() =>
+            {
+                var cacheData = db.StringGet(cacheKey);
+                if (cacheData.IsNullOrEmpty)
+                    return new List<T>();
+                return JsonSerializer.Deserialize<List<T>>(cacheData);
+            });
+        }
+
+        public async Task Save<T>(List<T> entity, string cacheKey)
+        {
+            await Task.Run(() =>
+            {
+                var data = JsonSerializer.Serialize(entity).ToString();
+                db.StringSet(cacheKey, data);
+            });
         }
     }
 }

@@ -1,15 +1,24 @@
 ﻿using Masiv.Casino.Application.Interfaces;
 using Masiv.Casino.Domain.Entities;
-using System;
+using Masiv.Casino.Domain.Interfaces.Services;
+using Masiv.Casino.Domain.Services.Utilities;
 using System.Threading.Tasks;
 
 namespace Masiv.Casino.Application.Services
 {
     public class BetApplication : IBetApplication
     {
-        public Task<GenericResponse> Create(Bet bet)
+        private readonly IBetService betService;
+
+        public BetApplication(IBetService betService)
         {
-            throw new NotImplementedException();
+            this.betService = betService;
+        }
+
+        public async Task<GenericResponse> Create(Bet bet)
+        {
+            var betId = await betService.Create(bet);
+            return Helper.ManageResponse(betId);
         }
     }
 }

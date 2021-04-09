@@ -8,9 +8,9 @@ namespace Masiv.Casino.Domain.Interfaces.Services
     {
         Task<string> Create();
 
-        Task<bool> Open(Roulette roulette);
+        Task<GenericResponse> Open(Roulette roulette);
 
-        Task<List<Bet>> Close(Roulette roulette);
+        Task<GenericResponse> Close(Roulette roulette);
 
         Task<List<Roulette>> Get();
     }

@@ -6,8 +6,9 @@ namespace Masiv.Casino.Domain.Entities
     public class Roulette
     {
         public string Id { get; set; } = Guid.NewGuid().ToString("N");
-        public string Name { get; set; }
-        public RouletteStatus State { get; set; } = RouletteStatus.Pending;
-        public DateTime CreationDate { get; set; }
+
+        public string State { get; set; } = RouletteStatus.Pending.ToString();
+
+        public DateTime CreationDate { get; set; } = DateTime.Now.ToUniversalTime();
     }
 }

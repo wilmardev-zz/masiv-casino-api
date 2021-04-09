@@ -1,31 +1,40 @@
 ﻿using Masiv.Casino.Application.Interfaces;
 using Masiv.Casino.Domain.Entities;
-using System;
-using System.Collections.Generic;
+using Masiv.Casino.Domain.Interfaces.Services;
+using Masiv.Casino.Domain.Services.Utilities;
 using System.Threading.Tasks;
 
 namespace Masiv.Casino.Application.Services
 {
     public class RouletteApplication : IRouletteApplication
     {
-        public Task<List<GenericResponse>> Close(Roulette roulette)
+        private readonly IRouletteService rouletteService;
+
+        public RouletteApplication(IRouletteService rouletteService)
         {
-            throw new NotImplementedException();
+            this.rouletteService = rouletteService;
         }
 
-        public Task<GenericResponse> Create()
+        public async Task<GenericResponse> Close(Roulette roulette)
         {
-            throw new NotImplementedException();
+            return await rouletteService.Close(roulette);
         }
 
-        public Task<List<GenericResponse>> Get()
+        public async Task<GenericResponse> Create()
         {
-            throw new NotImplementedException();
+            var rouletteId = await rouletteService.Create();
+            return Helper.ManageResponse(rouletteId);
         }
 
-        public Task<GenericResponse> Open(Roulette roulette)
+        public async Task<GenericResponse> Get()
         {
-            throw new NotImplementedException();
+            var rouletteList = await rouletteService.Get();
+            return Helper.ManageResponse(rouletteList);
+        }
+
+        public async Task<GenericResponse> Open(Roulette roulette)
+        {
+            return await rouletteService.Open(roulette);
         }
     }
 }

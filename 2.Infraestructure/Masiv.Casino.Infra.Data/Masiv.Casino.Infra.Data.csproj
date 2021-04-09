@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="2.2.4" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="6.4.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\1.Domain\Masiv.Casino.Domain.Interfaces\Masiv.Casino.Domain.Interfaces.csproj" />
   </ItemGroup>
 
