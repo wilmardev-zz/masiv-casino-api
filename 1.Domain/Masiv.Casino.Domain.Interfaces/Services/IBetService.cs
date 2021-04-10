@@ -6,7 +6,7 @@ namespace Masiv.Casino.Domain.Interfaces.Services
 {
     public interface IBetService
     {
-        Task<string> Create(Bet bet);
+        Task<GenericResponse> Create(Bet bet);
 
         Task<List<Bet>> Get();
     }

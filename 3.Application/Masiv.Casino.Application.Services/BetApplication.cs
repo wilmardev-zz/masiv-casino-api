@@ -1,7 +1,7 @@
-﻿using Masiv.Casino.Application.Interfaces;
+﻿using Masiv.Casino.Application.Contracts.DTO;
+using Masiv.Casino.Application.Interfaces;
 using Masiv.Casino.Domain.Entities;
 using Masiv.Casino.Domain.Interfaces.Services;
-using Masiv.Casino.Domain.Services.Utilities;
 using System.Threading.Tasks;
 
 namespace Masiv.Casino.Application.Services
@@ -15,10 +15,17 @@ namespace Masiv.Casino.Application.Services
             this.betService = betService;
         }
 
-        public async Task<GenericResponse> Create(Bet bet)
+        public async Task<GenericResponse> Create(BetDTO betDTO, string userId)
         {
-            var betId = await betService.Create(bet);
-            return Helper.ManageResponse(betId);
+            Bet bet = new Bet
+            {
+                RouletteId = betDTO.RouletteId,
+                Quantity = betDTO.Quantity,
+                Color = betDTO.Color,
+                Number = betDTO.Number,
+                UserId = userId
+            };
+            return await betService.Create(bet);
         }
     }
 }

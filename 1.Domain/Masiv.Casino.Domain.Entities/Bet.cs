@@ -1,5 +1,4 @@
-﻿using Masiv.Casino.Domain.Entities.Enums;
-using System;
+﻿using System;
 
 namespace Masiv.Casino.Domain.Entities
 {
@@ -9,7 +8,8 @@ namespace Masiv.Casino.Domain.Entities
         public string RouletteId { get; set; }
         public string UserId { get; set; }
         public int? Number { get; set; }
-        public BetColor? Color { get; set; }
+        public string Color { get; set; }
         public decimal Quantity { get; set; }
+        public decimal TotalBetWinner { get; set; }
     }
 }

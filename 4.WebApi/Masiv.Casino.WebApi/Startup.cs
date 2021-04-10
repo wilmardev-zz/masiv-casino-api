@@ -1,5 +1,6 @@
 using Masiv.Casino.Domain.Entities.Config;
 using Masiv.Casino.Infra.IoC;
+using Masiv.Casino.WebApi.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -37,6 +38,7 @@ namespace Masiv.Casino.WebApi
                 app.UseHsts();
 
             app.UseRouting();
+            app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

@@ -15,9 +15,9 @@ namespace Masiv.Casino.Application.Services
             this.rouletteService = rouletteService;
         }
 
-        public async Task<GenericResponse> Close(Roulette roulette)
+        public async Task<GenericResponse> Close(string rouletteId)
         {
-            return await rouletteService.Close(roulette);
+            return await rouletteService.Close(rouletteId);
         }
 
         public async Task<GenericResponse> Create()
@@ -32,9 +32,9 @@ namespace Masiv.Casino.Application.Services
             return Helper.ManageResponse(rouletteList);
         }
 
-        public async Task<GenericResponse> Open(Roulette roulette)
+        public async Task<GenericResponse> Open(string rouletteId)
         {
-            return await rouletteService.Open(roulette);
+            return await rouletteService.Open(rouletteId);
         }
     }
 }

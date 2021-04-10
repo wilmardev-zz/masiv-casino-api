@@ -16,31 +16,31 @@ namespace Masiv.Casino.WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("roulette/create")]
+        [Route("casino/roulette/create")]
         public async Task<GenericResponse> Create()
         {
             return await rouletteApplication.Create();
         }
 
         [HttpGet]
-        [Route("roulette/all")]
+        [Route("casino/roulette/all")]
         public async Task<GenericResponse> Get()
         {
             return await rouletteApplication.Get();
         }
 
-        [HttpPost]
-        [Route("roulette/open")]
-        public async Task<GenericResponse> Open(Roulette roulette)
+        [HttpPut]
+        [Route("casino/roulette/{rouletteId}/open")]
+        public async Task<GenericResponse> Open([FromRoute] string rouletteId)
         {
-            return await rouletteApplication.Open(roulette);
+            return await rouletteApplication.Open(rouletteId);
         }
 
-        [HttpPost]
-        [Route("roulette/close")]
-        public async Task<GenericResponse> Close(Roulette roulette)
+        [HttpPut]
+        [Route("casino/roulette/{rouletteId}/close")]
+        public async Task<GenericResponse> Close([FromRoute] string rouletteId)
         {
-            return await rouletteApplication.Close(roulette);
+            return await rouletteApplication.Close(rouletteId);
         }
     }
 }

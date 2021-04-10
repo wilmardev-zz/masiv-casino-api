@@ -7,5 +7,7 @@
         public decimal BetColorFee { get; set; }
         public string RouletteCacheKey { get; set; }
         public string BetCacheKey { get; set; }
+        public int MaxBetValidNumber { get; set; }
+        public int MinBetValidNumber { get; set; }
     }
 }

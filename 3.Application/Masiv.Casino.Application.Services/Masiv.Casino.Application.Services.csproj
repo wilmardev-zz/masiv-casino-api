@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\1.Domain\Masiv.Casino.Domain.Services\Masiv.Casino.Domain.Services.csproj" />
+    <ProjectReference Include="..\Masiv.Casino.Application.Contracts\Masiv.Casino.Application.Contracts.csproj" />
     <ProjectReference Include="..\Masiv.Casino.Application.Interfaces\Masiv.Casino.Application.Interfaces.csproj" />
   </ItemGroup>
 

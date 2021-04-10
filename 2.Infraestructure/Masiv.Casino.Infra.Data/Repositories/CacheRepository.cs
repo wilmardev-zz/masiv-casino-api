@@ -20,7 +20,7 @@ namespace Masiv.Casino.Infra.Data.Repositories
         {
             return await Task.Run(() =>
             {
-                var cacheData = db.StringGet(cacheKey);
+                RedisValue cacheData = db.StringGet(cacheKey);
                 if (cacheData.IsNullOrEmpty)
                     return new List<T>();
                 return JsonSerializer.Deserialize<List<T>>(cacheData);
@@ -31,7 +31,7 @@ namespace Masiv.Casino.Infra.Data.Repositories
         {
             await Task.Run(() =>
             {
-                var data = JsonSerializer.Serialize(entity).ToString();
+                string data = JsonSerializer.Serialize(entity).ToString();
                 db.StringSet(cacheKey, data);
             });
         }
