@@ -44,9 +44,9 @@ namespace Masiv.Casino.Domain.Services.Services
         {
             ErrorResponse error = null;
             if (selectedRoulette == null)
-                error = new ErrorResponse("ROULETE_NOT_FOUND", "The selected roulette not exist.");
+                error = new ErrorResponse(Constants.ROULETTE_NOT_FOUND, Constants.ROULETTE_NOT_FOUND_DESC);
             else if (!selectedRoulette.State.Equals(RouletteStatus.Open.ToString()))
-                error = new ErrorResponse("ROULETE_NOT_OPEN", "The selected roulette is not open to play.");
+                error = new ErrorResponse(Constants.ROULETTE_NOT_OPEN, Constants.ROULETTE_NOT_OPEN_DESC);
             return Helper.ManageResponse(error, error == null);
         }
     }

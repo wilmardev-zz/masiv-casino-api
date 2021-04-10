@@ -58,11 +58,11 @@ namespace Masiv.Casino.Domain.Services.Services
         {
             ErrorResponse error = null;
             if (roulette == null)
-                error = new ErrorResponse("ROULETTE_NOT_FOUND", "The selected roulette not exist.");
+                error = new ErrorResponse(Constants.ROULETTE_NOT_FOUND, Constants.ROULETTE_NOT_FOUND_DESC);
             else if (roulette.State.Equals(RouletteStatus.Close.ToString()))
-                error = new ErrorResponse("ROULETTE_IS_CLOSED", "The selected roulette has been closed.");
+                error = new ErrorResponse(Constants.ROULETTE_IS_CLOSED, Constants.ROULETTE_IS_CLOSED_DESC);
             else if (isOpen && roulette.State.Equals(RouletteStatus.Open.ToString()))
-                error = new ErrorResponse("ROULETTE_ALREADY_OPEN", "The selected roulette is already open.");
+                error = new ErrorResponse(Constants.ROULETTE_ALREADY_OPEN, Constants.ROULETTE_ALREADY_OPEN_DESC);
             return Helper.ManageResponse(error, error == null);
         }
 

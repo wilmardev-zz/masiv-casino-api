@@ -34,8 +34,8 @@ namespace Masiv.Casino.WebApi.Middleware
                 response.StatusCode = 500;
                 ErrorResponse errorResponse = new ErrorResponse
                 {
-                    ResultCode = "INTERNAL_SERVER_ERROR",
-                    ResultMsg = "Something went wrong. Please try again."
+                    ResultCode = Constants.INTERNAL_SERVER_ERROR,
+                    ResultMsg = Constants.INTERNAL_SERVER_ERROR_DESC
                 };
                 GenericResponse genericResponse = Helper.ManageResponse(errorResponse, false);
                 var result = JsonSerializer.Serialize(genericResponse);
