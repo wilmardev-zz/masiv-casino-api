@@ -2,6 +2,7 @@
 using Masiv.Casino.Domain.Entities.Config;
 using Masiv.Casino.Domain.Services.Utilities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -11,10 +12,12 @@ namespace Masiv.Casino.WebApi.Middleware
     public class ErrorHandlerMiddleware
     {
         private readonly RequestDelegate next;
+        private readonly ILogger logger;
 
-        public ErrorHandlerMiddleware(RequestDelegate next)
+        public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger)
         {
             this.next = next;
+            this.logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
@@ -23,8 +26,9 @@ namespace Masiv.Casino.WebApi.Middleware
             {
                 await next(context);
             }
-            catch (Exception error)
+            catch (Exception ex)
             {
+                logger.LogError($"-- Error: {ex.Message}  --- Stack Trace : {ex.StackTrace}");
                 var response = context.Response;
                 response.ContentType = "application/json";
                 response.StatusCode = 500;

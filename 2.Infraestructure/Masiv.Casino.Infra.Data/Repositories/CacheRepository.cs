@@ -1,5 +1,5 @@
 ﻿using Masiv.Casino.Domain.Interfaces.Repositories;
-using StackExchange.Redis;
+using StackExchange.Redis.Extensions.Core.Abstractions;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -8,32 +8,25 @@ namespace Masiv.Casino.Infra.Data.Repositories
 {
     public class CacheRepository : ICacheRepository
     {
-        private readonly IDatabase db;
+        private readonly IRedisDatabase redisDatabase;
 
-        public CacheRepository()
+        public CacheRepository(IRedisCacheClient redisCacheClient)
         {
-            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("localhost");
-            db = redis.GetDatabase(0);
+            this.redisDatabase = redisCacheClient.GetDbFromConfiguration();
         }
 
         public async Task<List<T>> Get<T>(string cacheKey)
         {
-            return await Task.Run(() =>
-            {
-                RedisValue cacheData = db.StringGet(cacheKey);
-                if (cacheData.IsNullOrEmpty)
-                    return new List<T>();
-                return JsonSerializer.Deserialize<List<T>>(cacheData);
-            });
+            var cacheData = await redisDatabase.GetAsync<object>(cacheKey);
+            if (cacheData == null)
+                return new List<T>();
+            return JsonSerializer.Deserialize<List<T>>(cacheData.ToString());
         }
 
         public async Task Save<T>(List<T> entity, string cacheKey)
         {
-            await Task.Run(() =>
-            {
-                string data = JsonSerializer.Serialize(entity).ToString();
-                db.StringSet(cacheKey, data);
-            });
+            string data = JsonSerializer.Serialize(entity).ToString();
+            await redisDatabase.AddAsync(cacheKey, data);
         }
     }
 }

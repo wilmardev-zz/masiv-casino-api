@@ -23,24 +23,24 @@ namespace Masiv.Casino.WebApi.Controllers
 
         [HttpPost]
         [Route("casino/bet/create")]
-        public async Task<object> Create([FromHeader(Name = "userId")][Required] string userId, [FromBody] BetDTO betDTO)
+        public async Task<object> Create([FromHeader(Name = "userId")][Required] string userId, [FromBody] BetDto betDto)
         {
-            if (!ValidateRequest(betDTO))
+            if (!ValidateRequest(betDto))
                 return BadRequest();
-            return await betApplication.Create(betDTO, userId);
+            return await betApplication.Create(betDto, userId);
         }
 
-        private bool ValidateRequest(BetDTO betDTO)
+        private bool ValidateRequest(BetDto betDto)
         {
-            if (!string.IsNullOrEmpty(betDTO.Color) &&
-                !BetColor.Black.ToString().ToUpper().Equals(betDTO.Color.ToUpper()) &&
-                !BetColor.Red.ToString().ToUpper().Equals(betDTO.Color.ToUpper()))
+            if (!string.IsNullOrEmpty(betDto.Color) &&
+                !BetColor.Black.ToString().ToUpper().Equals(betDto.Color.ToUpper()) &&
+                !BetColor.Red.ToString().ToUpper().Equals(betDto.Color.ToUpper()))
                 return false;
-            if (!(betDTO.Number == null ||
-                (betDTO.Number >= appSettings.MinBetValidNumber &&
-                betDTO.Number <= appSettings.MaxBetValidNumber)))
+            if (!(betDto.Number == null ||
+                (betDto.Number >= appSettings.MinBetValidNumber &&
+                betDto.Number <= appSettings.MaxBetValidNumber)))
                 return false;
-            if (betDTO.Quantity <= 0 || betDTO.Quantity > appSettings.MaxBetQuantityPerRoulette)
+            if (betDto.Quantity <= 0 || betDto.Quantity > appSettings.MaxBetQuantityPerRoulette)
                 return false;
             return true;
         }

@@ -2,7 +2,7 @@
 
 namespace Masiv.Casino.Application.Contracts.DTO
 {
-    public class BetDTO
+    public class BetDto
     {
         [Required]
         public string RouletteId { get; set; }

@@ -15,7 +15,7 @@ namespace Masiv.Casino.Application.Services
             this.betService = betService;
         }
 
-        public async Task<GenericResponse> Create(BetDTO betDTO, string userId)
+        public async Task<GenericResponse> Create(BetDto betDTO, string userId)
         {
             Bet bet = new Bet
             {

@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="StackExchange.Redis.Extensions.AspNetCore" Version="6.4.5" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Newtonsoft" Version="6.4.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.1" />
   </ItemGroup>
 

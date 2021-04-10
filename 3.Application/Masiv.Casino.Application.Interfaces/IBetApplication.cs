@@ -6,6 +6,6 @@ namespace Masiv.Casino.Application.Interfaces
 {
     public interface IBetApplication
     {
-        Task<GenericResponse> Create(BetDTO betDTO, string userId);
+        Task<GenericResponse> Create(BetDto betDTO, string userId);
     }
 }
