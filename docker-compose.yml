@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+    api:
+        image: "masiv-casino-api:latest"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development        
+            - RedisConnection=redis_image
+        build:
+            context: .
+            dockerfile: 4.WebApi/Masiv.Casino.WebApi/Dockerfile
+        ports:
+            - "6001:80"
+        depends_on:
+            - "redis_image"
+
+    redis_image:
+        image: redis
+        container_name: masiv-casino-cache
+        ports:
+            - "6379:6379"
+
