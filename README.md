@@ -57,6 +57,6 @@ This project consists it's build in ONION architecture with the following layers
 
 <br>
 
-# Authors
+# Author
 
 - #### **Wilmar Duque** - wilmarduque71@gmail.com
