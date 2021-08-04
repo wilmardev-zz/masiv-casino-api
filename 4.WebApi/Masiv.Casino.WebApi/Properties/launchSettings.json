@@ -17,17 +17,19 @@
       }
     },
     "Masiv.Casino.WebApi": {
-      "commandName": "Docker",
+      "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "/swagger",
+      "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:5000"
+      }
     },
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://localhost:{ServicePort}/api/values"
+      "launchUrl": "{Scheme}://localhost:{ServicePort}/api/values",
+      "environmentVariables": {}
     }
   }
 }

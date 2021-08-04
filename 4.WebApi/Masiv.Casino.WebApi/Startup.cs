@@ -9,8 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using StackExchange.Redis.Extensions.Core.Configuration;
-using StackExchange.Redis.Extensions.Newtonsoft;
 using System;
 
 namespace Masiv.Casino.WebApi
@@ -27,10 +25,6 @@ namespace Masiv.Casino.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            services.AddStackExchangeRedisExtensions<NewtonsoftSerializer>((options) =>
-            {
-                return Configuration.GetSection("RedisConfig").Get<RedisConfiguration>();
-            });
             services.Add(new DependencyInjector().GetServiceCollection());
             services.AddControllers();
             AddSwagger(services);

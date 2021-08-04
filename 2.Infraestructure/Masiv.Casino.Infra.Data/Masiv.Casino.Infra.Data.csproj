@@ -5,11 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="6.4.5" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Include="Dapper" Version="2.0.90" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\1.Domain\Masiv.Casino.Domain.Interfaces\Masiv.Casino.Domain.Interfaces.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft.Extensions.Options" />
+    <None Remove="Dapper" />
+    <None Remove="GenericRepository\" />
+    <None Remove="System.Data.SqlClient" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GenericRepository\" />
+  </ItemGroup>
 </Project>

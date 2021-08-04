@@ -9,5 +9,6 @@
         public string BetCacheKey { get; set; }
         public int MaxBetValidNumber { get; set; }
         public int MinBetValidNumber { get; set; }
+        public string ConnectionString { get; set; }
     }
 }

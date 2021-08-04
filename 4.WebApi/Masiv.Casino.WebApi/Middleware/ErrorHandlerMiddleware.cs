@@ -4,6 +4,7 @@ using Masiv.Casino.Domain.Services.Utilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Data.SqlClient;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -25,6 +26,21 @@ namespace Masiv.Casino.WebApi.Middleware
             try
             {
                 await next(context);
+            }
+            catch (BaseError baseError)
+            {
+                logger.LogError($"-- Error: {baseError.Message}  --- Stack Trace : {baseError.StackTrace}");
+                var response = context.Response;
+                response.ContentType = "application/json";
+                response.StatusCode = baseError.StatusCode;
+                ErrorResponse errorResponse = new ErrorResponse
+                {
+                    ResultCode = baseError.ResultCode,
+                    ResultMsg = baseError.ResultMsg
+                };
+                GenericResponse genericResponse = Helper.ManageResponse(errorResponse, false);
+                var result = JsonSerializer.Serialize(genericResponse);
+                await response.WriteAsync(result);
             }
             catch (Exception ex)
             {

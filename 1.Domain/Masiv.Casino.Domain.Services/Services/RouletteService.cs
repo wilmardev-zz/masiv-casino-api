@@ -14,85 +14,79 @@ namespace Masiv.Casino.Domain.Services.Services
 {
     public class RouletteService : IRouletteService
     {
-        private readonly ICacheRepository cacheRepository;
+        private readonly IRouletteRepository rouletteRepository;
+        private readonly IBetRepository betRepository;
         private readonly AppSettings appSettings;
         private readonly Random random = new Random();
 
-        public RouletteService(ICacheRepository cacheRepository, IOptions<AppSettings> appSettings)
+        public RouletteService(IRouletteRepository rouletteRepository,
+            IBetRepository betRepository , IOptions<AppSettings> appSettings)
         {
-            this.cacheRepository = cacheRepository;
+            this.rouletteRepository = rouletteRepository;
+            this.betRepository = betRepository;
             this.appSettings = appSettings.Value;
         }
 
         public async Task<GenericResponse> Close(string rouletteId)
         {
-            List<Bet> betList = await cacheRepository.Get<Bet>(appSettings.BetCacheKey);
-            List<Bet> betListSelected = betList.FindAll(x => x.RouletteId.Equals(rouletteId));
-            GenericResponse resultChangeStatus = await ChangeRouletteStatus(rouletteId, false);
-            BetResult betResult = SelectBetWinner(betListSelected, rouletteId);
-            if (!resultChangeStatus.Success)
-                return resultChangeStatus;
+            var response = await rouletteRepository.Close(rouletteId);
+            var betList = await betRepository.GetByRouletteId(rouletteId);
+            GenericResponse validation = ValidateRouletteStatus(response);
+            if (!validation.Success)
+                return validation;
+            BetResult betResult = SelectBetWinner(betList, rouletteId);
             return Helper.ManageResponse(betResult);
         }
 
         public async Task<string> Create()
         {
-            List<Roulette> rouletteList = await Get();
             Roulette roulette = new Roulette();
-            rouletteList.Add(roulette);
-            await cacheRepository.Save(rouletteList, appSettings.RouletteCacheKey);
+            await rouletteRepository.Save<Roulette>(roulette);
             return roulette.Id;
         }
 
         public async Task<List<Roulette>> Get()
         {
-            return await cacheRepository.Get<Roulette>(appSettings.RouletteCacheKey);
+            return await rouletteRepository.Get();
         }
 
         public async Task<GenericResponse> Open(string rouletteId)
         {
-            return await ChangeRouletteStatus(rouletteId, true);
-        }
-
-        private GenericResponse ValidateRouletteStatus(Roulette roulette, bool isOpen)
-        {
-            ErrorResponse error = null;
-            if (roulette == null)
-                error = new ErrorResponse(Constants.ROULETTE_NOT_FOUND, Constants.ROULETTE_NOT_FOUND_DESC);
-            else if (roulette.State.Equals(RouletteStatus.Close.ToString()))
-                error = new ErrorResponse(Constants.ROULETTE_IS_CLOSED, Constants.ROULETTE_IS_CLOSED_DESC);
-            else if (isOpen && roulette.State.Equals(RouletteStatus.Open.ToString()))
-                error = new ErrorResponse(Constants.ROULETTE_ALREADY_OPEN, Constants.ROULETTE_ALREADY_OPEN_DESC);
-            return Helper.ManageResponse(error, error == null);
-        }
-
-        private async Task<GenericResponse> ChangeRouletteStatus(string rouletteId, bool isOpen)
-        {
-            List<Roulette> rouletteList = await Get();
-            Roulette selectedRoulette = rouletteList.FirstOrDefault(x => x.Id.Equals(rouletteId));
-            GenericResponse validation = ValidateRouletteStatus(selectedRoulette, isOpen);
+            var response = await rouletteRepository.Open(rouletteId);
+            GenericResponse validation = ValidateRouletteStatus(response);
             if (!validation.Success)
                 return validation;
-            selectedRoulette.State = isOpen ? RouletteStatus.Open.ToString() : RouletteStatus.Close.ToString();
-            selectedRoulette.CloseDate = !isOpen ? DateTime.UtcNow : (DateTime?)null;
-            await cacheRepository.Save(rouletteList, appSettings.RouletteCacheKey);
             return Helper.ManageResponse();
         }
 
-        private BetResult SelectBetWinner(List<Bet> betListSelected, string rouletteId)
+        private GenericResponse ValidateRouletteStatus(int dbResponse)
+        {
+            ErrorResponse error = null;
+            if (dbResponse == 4)
+                throw new BadRequest(Constants.ROULETTE_NOT_FOUND, Constants.ROULETTE_NOT_FOUND_DESC);
+            else if (dbResponse == 3)
+                throw new BadRequest(Constants.ROULETTE_IS_CLOSED, Constants.ROULETTE_IS_CLOSED_DESC);
+            else if (dbResponse == 2)
+                throw new BadRequest(Constants.ROULETTE_ALREADY_OPEN, Constants.ROULETTE_ALREADY_OPEN_DESC);
+            return Helper.ManageResponse(error, error == null);
+        }
+
+        private BetResult SelectBetWinner(List<Bet> betList, string rouletteId)
         {
             int winnerNumber = random.Next(appSettings.MinBetValidNumber, appSettings.MaxBetValidNumber);
             bool isEvenNumber = winnerNumber % 2 == 0;
             decimal totalBet = 0;
-            foreach (var bet in betListSelected)
+            foreach (var bet in betList)
             {
                 CalculateMoneyWinner(bet, winnerNumber, isEvenNumber);
                 totalBet += bet.TotalBetWinner;
+                betRepository.Update<Bet>(bet);
+
             }
             return new BetResult
             {
                 RouletteId = rouletteId,
-                Bets = betListSelected,
+                Bets = betList,
                 TotalBetWinners = totalBet,
                 WinnerNumber = winnerNumber,
                 WinnerColor = isEvenNumber ? BetColor.Red.ToString() : BetColor.Black.ToString(),

@@ -8,4 +8,10 @@
     <ProjectReference Include="..\Masiv.Casino.Domain.Entities\Masiv.Casino.Domain.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="GenericRepository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GenericRepository\" />
+  </ItemGroup>
 </Project>

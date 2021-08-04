@@ -13,39 +13,30 @@ namespace Masiv.Casino.Domain.Services.Services
 {
     public class BetService : IBetService
     {
-        private readonly ICacheRepository cacheRepository;
+        private readonly IBetRepository betRepository;
         private readonly AppSettings appSettings;
 
-        public BetService(ICacheRepository cacheRepository, IOptions<AppSettings> appSettings)
+        public BetService(IBetRepository betRepository, IOptions<AppSettings> appSettings)
         {
-            this.cacheRepository = cacheRepository;
+            this.betRepository = betRepository;
             this.appSettings = appSettings.Value;
         }
 
         public async Task<GenericResponse> Create(Bet bet)
         {
-            List<Bet> betList = await Get();
-            List<Roulette> rouletteList = await cacheRepository.Get<Roulette>(appSettings.RouletteCacheKey);
-            Roulette selectedRoulette = rouletteList.FirstOrDefault(x => x.Id == bet.RouletteId);
-            GenericResponse validation = ValidateStatusRoulette(selectedRoulette);
+            int response = await this.betRepository.Save(bet);
+            GenericResponse validation = ValidateStatusRoulette(response);
             if (!validation.Success)
                 return validation;
-            betList.Add(bet);
-            await cacheRepository.Save(betList, appSettings.BetCacheKey);
             return Helper.ManageResponse();
         }
 
-        public async Task<List<Bet>> Get()
-        {
-            return await cacheRepository.Get<Bet>(appSettings.BetCacheKey);
-        }
-
-        private GenericResponse ValidateStatusRoulette(Roulette selectedRoulette)
+        private GenericResponse ValidateStatusRoulette(int dbResult)
         {
             ErrorResponse error = null;
-            if (selectedRoulette == null)
+            if (dbResult == 3)
                 error = new ErrorResponse(Constants.ROULETTE_NOT_FOUND, Constants.ROULETTE_NOT_FOUND_DESC);
-            else if (!selectedRoulette.State.Equals(RouletteStatus.Open.ToString()))
+            else if (dbResult == 2)
                 error = new ErrorResponse(Constants.ROULETTE_NOT_OPEN, Constants.ROULETTE_NOT_OPEN_DESC);
             return Helper.ManageResponse(error, error == null);
         }

@@ -12,5 +12,6 @@
         public const string ROULETTE_ALREADY_OPEN_DESC = "The selected roulette is already open.";
         public const string INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR";
         public const string INTERNAL_SERVER_ERROR_DESC = "Something went wrong. Please try again.";
+        public const string SQL_EXCEPTION = "INTERNAL_DB_ERROR";
     }
 }
