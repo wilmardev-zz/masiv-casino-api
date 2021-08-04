@@ -47,9 +47,9 @@ This project consists it's build in ONION architecture with the following layers
 
 #### **4.** Start the everything up `docker-compose up`
 
-#### **5.** Open browser in `http://localhost:{DefaultPort}/swagger`. **DefaultPort: 6001**
+#### **5.** Run script "Casino_Query.sql" from sql server GUI or CLI to populate data structure for the app.
 
-#### **6.** Run script "Casino_Query.sql" from sql server GUI or CLI to populate data structure for the app.
+#### **6.** Open browser in `http://localhost:{DefaultPort}/swagger`. **DefaultPort: 6001**
 
 #### **7.** Access the roulette data using Http Get to access `/casino/roulette/all`
 
