@@ -1,12 +1,12 @@
 config:
-  target: "http://localhost:5000"
+  target: "http://localhost:6001"
   http:
     timeout: 10
     maxSockets: 5
   phases:
     - duration: 10
-      arrivalRate: 80
+      arrivalRate: 120
 scenarios:
   - flow:
       - put:
-          url: "/casino/roulette/449487A8-6D24-49F0-9D64-5EF92FD7775F/close"
+          url: "/casino/roulette/81458951-375A-4AB9-AD6F-E25FD254761F/open"

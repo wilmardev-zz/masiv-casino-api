@@ -1,6 +1,6 @@
 # Masiv Casino Api
 
-This is a .Net Core v3.1 Web Api. Use Redis Cache for distribuided data and optimized for horizontal scaling. This API implements docker.
+This is a .Net Core v3.1 Web Api. Use SQL Server Database with concurrency control (isolation level) and optimized for horizontal scaling. This API implements docker.
 
 <br>
 
@@ -16,7 +16,7 @@ This project consists it's build in ONION architecture with the following layers
 
 ##### **2. Infrastructure**: External Agents
 
-- **Data**: Implements Cache Redis Repository
+- **Data**: Implements Repository Data Lake
 - **IoC**: Implements Dependency Injection
 
 #### **3. Application**: Layer for UI access
@@ -49,7 +49,7 @@ This project consists it's build in ONION architecture with the following layers
 
 #### **5.** Open browser in `http://localhost:{DefaultPort}/swagger`. **DefaultPort: 6001**
 
-#### **6.** Populate the Redis cache data executing method create `/casino/roulette/create`
+#### **6.** Run script "Casino_Query.sql" from sql server GUI or CLI to populate data structure for the app.
 
 #### **7.** Access the roulette data using Http Get to access `/casino/roulette/all`
 

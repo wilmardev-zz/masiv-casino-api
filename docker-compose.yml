@@ -1,21 +1,23 @@
 version: "3.9"
 services:
-    api:
-        image: "masiv-casino-api:latest"
-        environment:
-            - ASPNETCORE_ENVIRONMENT=Development        
-            - RedisConnection=redis_image
-        build:
-            context: .
-            dockerfile: 4.WebApi/Masiv.Casino.WebApi/Dockerfile
-        ports:
-            - "6001:80"
-        depends_on:
-            - "redis_image"
+  api:
+    image: "masiv-casino-api:latest"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RedisConnection=redis_image
+    build:
+      context: .
+      dockerfile: 4.WebApi/Masiv.Casino.WebApi/Dockerfile
+    ports:
+      - "6001:80"
+    depends_on:
+      - sql_db
 
-    redis_image:
-        image: redis
-        container_name: masiv-casino-cache
-        ports:
-            - "6379:6379"
-
+  sql_db:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: masiv-casino-db
+    ports:
+      - 1433:1433
+    environment:
+      SA_PASSWORD: qwertY12@3
+      ACCEPT_EULA: Y
