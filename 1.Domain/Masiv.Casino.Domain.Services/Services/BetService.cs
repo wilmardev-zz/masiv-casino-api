@@ -14,12 +14,10 @@ namespace Masiv.Casino.Domain.Services.Services
     public class BetService : IBetService
     {
         private readonly IBetRepository betRepository;
-        private readonly AppSettings appSettings;
 
-        public BetService(IBetRepository betRepository, IOptions<AppSettings> appSettings)
+        public BetService(IBetRepository betRepository)
         {
             this.betRepository = betRepository;
-            this.appSettings = appSettings.Value;
         }
 
         public async Task<GenericResponse> Create(Bet bet)

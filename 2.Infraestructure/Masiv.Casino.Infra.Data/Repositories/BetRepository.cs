@@ -40,7 +40,7 @@ namespace Masiv.Casino.Infra.Data.Repositories
             parameters.Add("Quantity", bet.Quantity);
             parameters.Add("Result", dbType: DbType.Int32, direction: ParameterDirection.Output);
             using var db = await this.dbFactory.GetConnection();
-            var query = await db.QueryAsync("[Casino].[SaveBet]",
+            await db.QueryAsync("[Casino].[SaveBet]",
                 commandType: System.Data.CommandType.StoredProcedure,
                 param: parameters);
             var response = parameters.Get<int>("@Result");
@@ -58,8 +58,7 @@ namespace Masiv.Casino.Infra.Data.Repositories
             var query = await db.QueryAsync("[Casino].[UpdateBet]",
                 commandType: System.Data.CommandType.StoredProcedure,
                 param: parameters);
-            var response = query.FirstOrDefault();
-
+            query.FirstOrDefault();
         }
     }
 }

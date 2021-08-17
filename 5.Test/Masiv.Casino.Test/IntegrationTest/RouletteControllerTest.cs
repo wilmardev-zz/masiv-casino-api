@@ -33,10 +33,10 @@ namespace Masiv.Casino.Test.IntegrationTest
         }
 
         [Theory]
-        [InlineData("casino/roulette/{rouletteId}/open", "75bac53fdd84414caf5146709ea24236", 200)]
-        [InlineData("casino/roulette/{rouletteId}/open", null, 400)]
-        [InlineData("casino/roulette/{rouletteId}/close", "75bac53fdd84414caf5146709ea24236", 200)]
-        [InlineData("casino/roulette/{rouletteId}/close", null, 400)]
+        //[InlineData("casino/roulette/{rouletteId}/open", "B1AABCDB-F39D-433F-B8BB-96CAB73253E4", 200)]
+        [InlineData("casino/roulette/{rouletteId}/open", "DCS", 400)]
+        //[InlineData("casino/roulette/{rouletteId}/close", "B1AABCDB-F39D-433F-B8BB-96CAB73253E4", 200)]
+        [InlineData("casino/roulette/{rouletteId}/close", "SDSF", 400)]
         public async Task CloseOpenRouletteMethod_Test(string url, string rouletteId, int expectedCode)
         {
             var client = factory.CreateClient();

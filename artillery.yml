@@ -9,4 +9,4 @@ config:
 scenarios:
   - flow:
       - put:
-          url: "/casino/roulette/81458951-375A-4AB9-AD6F-E25FD254761F/open"
+          url: "/casino/roulette/313B0E1C-A41E-4C02-A9B9-5D48345A6CE9/open"
